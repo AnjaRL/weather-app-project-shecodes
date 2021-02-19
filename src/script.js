@@ -16,7 +16,7 @@ if (currentMinutes < 10) {
 console.log(currentMinutes);
 
 //Day
-function formatDate() {
+function formatDate(timestamp) {
   let days = [
     "Sunday",
     "Monday",
@@ -44,7 +44,7 @@ function formatDate() {
   ];
   let month = months[now.getMonth()];
   let date = now.getDate();
-  return `Updated on ${day}, ${month} ${date}  &nbsp  ${currentHour}:${currentMinutes}`;
+  return `${day}, ${month} ${date}  &nbsp  ${currentHour}:${currentMinutes}`;
 }
 
 let h2 = document.querySelector("h2");
@@ -54,13 +54,11 @@ function showWeather(response) {
   console.log(response);
   document.querySelector("#city").innerHTML = response.data.name;
 
-  let temperature = Math.round(response.data.main.temp);
-  let tempy = document.querySelector("#temp");
-  tempy.innerHTML = temperature;
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = Math.round(response.data.main.temp);
 
-  let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = description;
+  descriptionElement.innerHTML = response.data.weather[0].description;
 
   let feelsLike = Math.round(response.data.main.feels_like);
   let feels = document.querySelector("#feelsLike");
@@ -73,6 +71,13 @@ function showWeather(response) {
   let wind = Math.round(response.data.wind.speed * 3.6);
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = `${wind}km/h`;
+
+  let iconElement = document.querySelector("#current-temp-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   document.querySelector("#sunrise").innerHTML = sunriseSunsetHours(
     response.data.sys.sunrise * 1000
@@ -97,7 +102,6 @@ function sunriseSunsetHours(timestamp) {
 //Real Weather
 function downloadData(inputCity) {
   let apiKey = "2ff2b093a98356d7999ea13bc286e33e";
-  let units = "metric";
   let city = inputCity;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
