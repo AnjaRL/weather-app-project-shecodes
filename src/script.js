@@ -54,23 +54,22 @@ function showWeather(response) {
   console.log(response);
   document.querySelector("#city").innerHTML = response.data.name;
 
-  let tempElement = document.querySelector("#temp");
-  tempElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
+  feelsLikeElement = Math.round(response.data.main.feels_like);
+  windElement = Math.round(response.data.wind.speed * 3.6);
+
+  document.querySelector("#temp").innerHTML = celsiusTemperature;
 
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.weather[0].description;
 
-  let feelsLike = Math.round(response.data.main.feels_like);
-  let feels = document.querySelector("#feelsLike");
-  feels.innerHTML = `${feelsLike}°`;
+  document.querySelector("#feelsLike").innerHTML = feelsLikeElement;
 
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${humidity}%`;
 
-  let wind = Math.round(response.data.wind.speed * 3.6);
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = `${wind}km/h`;
+  document.querySelector("#wind").innerHTML = `${windElement} km/h`;
 
   let iconElement = document.querySelector("#current-temp-icon");
   iconElement.setAttribute(
@@ -109,8 +108,6 @@ function downloadData(inputCity) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
 }
 
-downloadData("Trou aux Biches");
-
 //Search form
 function searchCity(event) {
   console.log(event);
@@ -143,23 +140,45 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#locationButton");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-//Degree to Celcius
+//Degrees
 //•C
-function celsiusTemp(event) {
+function displayCelsiusTemp(event) {
   event.preventDefault();
-  let celsius = document.querySelector("#temp");
-  temp.innerHTML = 19;
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = celsiusTemperature;
+  document.querySelector("#feelsLike").innerHTML = feelsLikeElement;
+  document.querySelector("#wind").innerHTML = `${windElement} km/h`;
+
+  windElement.innerHTML = `${wind}km/h`;
 }
 
 let celsius = document.querySelector("#celsiusLink");
-celsius.addEventListener("click", celsiusTemp);
+celsius.addEventListener("click", displayCelsiusTemp);
+
+let celsiusTemperature = null;
+let feelsLikeElement = null;
+let windElement = null;
 
 //•F
-function farenheitTemp(event) {
+function displayFarenheitTemp(event) {
   event.preventDefault();
-  let farenheit = document.querySelector("#temp");
-  temp.innerHTML = 66;
+  let tempElement = document.querySelector("#temp");
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(farenheitTemp);
+
+  document.querySelector("#feelsLike").innerHTML = Math.round(
+    (feelsLikeElement * 9) / 5 + 32
+  );
+  document.querySelector("#wind").innerHTML = `${Math.round(
+    windElement / 3.6
+  )} mph`;
 }
 
 let farenheit = document.querySelector("#farenheitLink");
-farenheit.addEventListener("click", farenheitTemp);
+farenheit.addEventListener("click", displayFarenheitTemp);
+
+downloadData("Trou aux Biches");
