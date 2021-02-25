@@ -1,11 +1,10 @@
 .container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 20px auto;
   padding: 40px;
-  background-color: #b8c6db;
   background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
-  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .form-row {
@@ -16,14 +15,18 @@
 }
 #searchButton {
   padding-right: auto;
+  margin-left: -20px;
+  margin-top: -px;
 }
 #locationButton {
-  right: -50px;
+  margin-right: -20px;
+  margin-left: 20px;
 }
 .weather .iconSearch {
   right: 0px;
-  font-size: 16px;
+  font-size: 14px;
   position: relative;
+  margin-top: auto;
 }
 .card {
   margin: 0 auto;
@@ -39,14 +42,13 @@ h1 {
   text-align: center;
   font-family: sans-serif;
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 40px;
 }
 h2 {
   font-size: 12px;
   font-family: "Quicksand", sans-serif;
   text-align: center;
-  opacity: 0.6;
   margin-bottom: 10px;
 }
 #current-temp-icon {
@@ -56,20 +58,21 @@ h2 {
 }
 
 h3 {
-  font-family: "Quicksand", sans-serif;
+  font-family: sans-serif;
   text-align: center;
-  font-size: 14px;
-  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 100px;
+  text-transform: uppercase;
   margin-top: -20px;
-  margin-left: -15px;
 }
 
 h4 {
   font-family: "Work Sans", sans-serif;
   text-align: center;
-  font-size: 64px;
-  font-weight: 800;
+  font-size: 60px;
+  font-weight: 900;
   margin-bottom: 40px;
+  margin-right: -25px;
 }
 .scale {
   position: relative;
@@ -81,7 +84,7 @@ h4 {
   text-decoration: none;
 }
 .scale .active {
-  color: black;
+  color: white;
   cursor: default;
   text-decoration: none;
 }
@@ -101,20 +104,33 @@ h4 {
   font-family: "Quicksand", sans-serif;
   font-size: 12px;
   text-align: center;
-  margin-bottom: 20px;
-  text-shadow: 0px 0px 0.2px black;
+  margin-bottom: 40px;
 }
+
+.row {
+  border: 0px solid #dadde1;
+  box-shadow: 0.8px 0.8px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.weather-forecast-hours img {
+  display: block;
+  height: 50px;
+  margin: 0 auto;
+  width: 50px;
+}
+
 .hour,
 .days {
   font-family: "Work Sans", sans-serif;
   color: #0288d1;
-  font-size: 14px;
-}
-.forecast-hour,
-.forecast-day {
-  font-family: "Work Sans", sans-serif;
   font-size: 12px;
-  text-shadow: 0px 0px 0.01px black;
+}
+#forecast-hour,
+.forecast-day {
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
 }
 
 hr {

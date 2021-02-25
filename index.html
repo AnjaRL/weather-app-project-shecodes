@@ -27,7 +27,7 @@
       <div class="weather">
         <form id="search-engine">
           <div class="form-row align-items-center">
-            <div class="col-8">
+            <div class="col-9">
               <input
                 type="text"
                 id="search-city-input"
@@ -123,123 +123,9 @@
         </span>
         <span id="wind"></span>
       </div>
+
       <!--Meteo par heure 5 col-->
-      <div class="row hours">
-        <div class="col-sm">
-          <span class="hour">02:00</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="fa-solid:cloud-moon"
-            data-inline="false"
-          ></span>
-          <br />
-          <span class="forecast-hour">23°</span>
-        </div>
-        <div class="col-sm">
-          <span class="hour">05:00</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="ic:baseline-wb-cloudy"
-            data-inline="false"
-          ></span>
-          <br />
-          <span class="forecast-hour">23°</span>
-        </div>
-        <div class="col-sm">
-          <span class="hour">08:00</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="ic:baseline-wb-cloudy"
-            data-inline="false"
-          ></span>
-          <br />
-          <span class="forecast-hour">27°</span>
-        </div>
-        <div class="col-sm">
-          <span class="hour">11:00</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="fa-solid:cloud-sun"
-            data-inline="false"
-          ></span>
-          <br />
-          <span class="forecast-hour">29°</span>
-        </div>
-        <div class="col-sm">
-          <span class="hour">14:00</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="fa-solid:sun"
-            data-inline="false"
-          ></span>
-          <br />
-          <span class="forecast-hour">29°</span>
-        </div>
-      </div>
-      <!--Ligne horizontale-->
-      <hr />
-      <!--Forecast 5 jours-->
-      <div class="row">
-        <div class="col-sm">
-          <span class="days">TUES </span>
-          <br /><span
-            class="iconify"
-            data-icon="fa-solid:sun"
-            data-inline="false"
-          ></span
-          ><br /><!--à centrer-->
-          <span class="forecast-day">23° <strong>29°</strong></span>
-        </div>
-        <div class="col-sm">
-          <span class="days">WED</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="fa-solid:sun"
-            data-inline="false"
-          ></span
-          ><br /><!--à centrer-->
-          <span class="forecast-day">24° <strong>27°</strong></span>
-        </div>
-        <div class="col-sm">
-          <span class="days">THU</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="fa-solid:cloud-sun"
-            data-inline="false"
-          ></span>
-          <br /><!--à centrer-->
-          <span class="forecast-day">25° <strong>29°</strong></span>
-        </div>
-        <div class="col-sm">
-          <span class="days">FRI</span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="fa-solid:cloud-sun"
-            data-inline="false"
-          ></span>
-          <br /><!--à centrer-->
-          <span class="forecast-day">24° <strong>29°</strong></span>
-        </div>
-        <div class="col-sm">
-          <span class="days">SUN </span>
-          <br />
-          <span
-            class="iconify"
-            data-icon="fa-solid:sun"
-            data-inline="false"
-          ></span>
-          <br /><!--à centrer-->
-          <span class="forecast-day">25° <strong>29°</strong></span>
-        </div>
-      </div>
+      <div class="row weather-forecast-hours" id="forecastHourly"></div>
     </div>
 
     <footer>
