@@ -139,7 +139,7 @@ function showWeather(response) {
 
   if (currentIcon === "13d" || currentIcon === "13n") {
     container.style.backgroundImage =
-      "linear-gradient(3315deg, #b8c6db 0%, #f5f7fa 74%)";
+      "linear-gradient(3315deg, #b8c6db 40%, #f5f7fa 90%)";
   }
   if (currentIcon === "50d" || currentIcon === "50n") {
     container.style.backgroundImage =
