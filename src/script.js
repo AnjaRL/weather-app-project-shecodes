@@ -233,7 +233,11 @@ function searchCurrentLocation(position) {
   let apiKey = "2ff2b093a98356d7999ea13bc286e33e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayForecast);
 }
+
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchCurrentLocation);
